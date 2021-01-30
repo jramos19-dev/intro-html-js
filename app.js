@@ -69,10 +69,11 @@ addForm.addEventListener("submit", (event) => {
 
 pendingList.addEventListener("click", (event) => {
   todos.find((todo) => todo.id === event.target.id).status = "done";
-  showTodos();
+  updateTodos(completedList,"done");
+
 });
 
 completedList.addEventListener("click", (event) => {
   todos.find((todo) => todo.id === event.target.id).status = "pending";
-  showTodos();
+  updateTodos(pendingList,"pending");
 });
