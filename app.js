@@ -1,11 +1,13 @@
 const todos = [];
 
-const get = (element) => document.getElementById(element)
-const pendingList = get("pendingList");
-const completedList = get("completedList");
-const addForm = get("addForm");
-const newTodo = get("newTodo");
 
+// replaced the element inside the get() with an array and called it elements
+const get = (elements) =>
+ elements.map(element => document.getElementById(element));
+
+
+const [pendingList,completedList,addForm,newTodo] = get([
+  "pendingList", "completedList", "addForm", "newTodo"]);
 
 // CHANGED THE 2 CLASSES TO A CSSCLASSES 
 const cssClasses = {
