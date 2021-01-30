@@ -16,6 +16,20 @@ const cssClasses = {
 
 }
 
+// changed the title of the constant
+const updateTodos = (listElement,status) => {
+  const filteredTodos = todos.filter((todo) => todo.status == status === "pending");
+listElement.innerHTML =""
+filteredTodos.forEach((todo) => {
+const item = document.createElement("li");
+item.className = cssClasses[status];
+item.innerText = todo.text;
+item.id = todo.id;
+listElement.appendChild(pendingItem);
+
+});
+
+};
 
 const showTodos = () => {
   const pendingTodos = todos.filter((todo) => todo.status === "pending");
@@ -50,7 +64,7 @@ addForm.addEventListener("submit", (event) => {
     status: "pending",
   });
   newTodo.value = "";
-  showTodos();
+  updateTodos(pendingList,"pending");
 });
 
 pendingList.addEventListener("click", (event) => {
